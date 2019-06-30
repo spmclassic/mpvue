@@ -1,0 +1,35 @@
+
+/* 通用 */
+h1{ font-size: 38rpx; color: #333;}
+p{ font-size: 30rpx; color: #333;}
+.position-r{ position: relative;}
+.red-back{ background: #d11208; color:#fff; border: none;}
+.red{ color:#d11208!important; }
+.gray{ color:#666;}
+.gray-back{ height:100%; background: #eee9e9}
+.h130{ height: 130rpx;}
+.ml-10{ margin-left: 10rpx;}
+.mb-25{ margin-bottom: 25rpx;}
+.mt-25{ margin-top: 25rpx;}
+.display-inline{ display: inline-block; }
+.b-b{ border-bottom: 1px solid #b9b5cd;}
+
+.authlogin{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+.numbers{
+    position: absolute;
+    width: 60rpx;
+    height: 60rpx;
+    top: 20rpx;
+    right: -60rpx;
+    text-align: center;
+    line-height: 60rpx;
+    font-size: 40rpx;
+}

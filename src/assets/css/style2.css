@@ -1,0 +1,266 @@
+
+/* 通用 */
+h1{ font-size: 38rpx; color: #333;}
+p{ font-size: 30rpx; color: #333;}
+.position-r{ position: relative;}
+.red-back{ background: #d11208; color:#fff; border: none;}
+.red{ color:#d11208!important; }
+.gray{ color:#666;}
+.gray-back{ height:100%; background: #eee9e9}
+.h130{ height: 130rpx;}
+.ml-10{ margin-left: 10rpx;}
+.mb-25{ margin-bottom: 25rpx;}
+.mt-25{ margin-top: 25rpx;}
+.display-inline{ display: inline-block; }
+.b-b{ border-bottom: 1px solid #b9b5cd;}
+
+/* 钱 名字 */
+.zt-money{ overflow: hidden; font-size: 26rpx; padding-top: 15rpx;}
+.zt-money dt{ float: left}
+.zt-money .kuan span{ margin-left: 15rpx;}
+.zt-money .kuan span:first-child{ margin-left: 0rpx;}
+.zt-money dd{ float: right}
+
+.myContainer{ width: 92%; margin:0 4%;}
+.myContainer2{ width: 80%; margin:0 10%;}
+/*--------------------------------------------*/
+.inp-search{
+  width: 100%;
+  height: 55rpx;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  border: 1px solid #8781a6;
+  display: inline-block;
+  box-sizing: border-box;
+  text-indent: 5px;
+  border-radius: 8rpx;
+  padding:0 0 0 70rpx;
+  margin: 13rpx 0 15rpx;
+  background-size:33rpx;
+  background-position: 20rpx center ;
+}
+.banner{
+  width: 100%;
+  height: 350rpx;
+  /*background:blue;*/
+}
+.myTitle{
+  padding: 25rpx 0;
+}
+.zt-box{
+  overflow: hidden;
+}
+.zt-box.one-line p{
+   overflow: hidden;
+   display: -webkit-box;
+   text-overflow: ellipsis;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 1;
+ }
+.zt-box.two-line p{
+    height: 80rpx;
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.zt-box.mt-30 li{ margin-top: 30rpx;}
+.zt-box li{ margin-bottom: 15px;}
+.zt-box li img{ width: 100%; height: auto;}
+.zt-box li:nth-child(2n-1){
+  float: left;
+  width: calc(50% - 8rpx);
+  margin-right: 8rpx;
+}
+.zt-box li:nth-child(2n){
+  float: left;
+  width: calc(50% - 8rpx);
+  margin-left: 8rpx;
+}
+/* nav 导航 */
+.nav{
+  position:fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 30rpx;
+  padding:20rpx 0;
+  background: #fff;
+  border-top: 1rpx solid #e6e6e6;
+  overflow: hidden;
+    height: 75rpx;
+}
+.nav li{
+  width: 25%;
+  text-align: center;
+  float:left;
+}
+.nav img{ width: 40rpx;}
+
+/* 我的购买 */
+.buy-scroll{
+    overflow: hidden;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    white-space:nowrap;
+}
+.buy-scroll li{
+   display:inline-block;
+   font-size: 30rpx;
+   margin-right: 50rpx;
+   padding:30rpx 0;
+}
+.authlogin{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+/* 视频详情 */
+.details{ width: 100%; height: 350rpx; background: aquamarine;}
+.video-comment{ margin-bottom: 20rpx;}
+/*.video-comment li:last-child{ border-bottom: 1rpx solid #8781a6;}*/
+.video-comment li{
+   overflow: hidden;
+   padding: 30rpx 0;
+   border-top:1rpx solid #b9b5cd;
+ }
+.video-comment li:first-child{
+  border-top:0;
+}
+.video-comment-img{
+  width:85rpx;
+  height: 85rpx;
+  border-radius: 50%;
+  margin-right:25rpx;
+  float: left;
+}
+
+.video-comment-font{
+  font-size: 30rpx;
+  line-height: 45rpx;
+  width: calc( 100% - 110rpx );
+  float: left;
+}
+.video-comment-font dl dt,.video-comment-font dl dd{
+   display: inline-block;
+ }
+.video-comment-font dl dt{
+  width:120rpx;
+  margin-top: 15rpx;
+}
+.fabulous{
+  display: inline-block;
+  width:30rpx;
+  height: 36rpx;
+  margin-right:15rpx;
+  background-size: 30rpx 36rpx;
+}
+.fabulous-red{
+  background-size: 30rpx 36rpx;
+}
+.pay{
+  width:150rpx;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  border: 1rpx solid #b9b5cd;
+  border-radius: 8rpx;
+  margin-top: -14rpx;
+  margin-left: 50rpx;
+}
+
+/*----------- 我的积分 --------------*/
+.integral li{
+  padding-bottom:35rpx;
+  border-bottom: 1rpx solid #b9b5cd;
+}
+.integral li:first-child{
+  padding-top:0rpx;
+}
+.integral li:last-child{
+  border-bottom: 0rpx;
+}
+.integral-top{
+   padding-bottom: 35rpx;
+   position: relative;
+ }
+.integral-top .integral-font{
+  font-size: 30rpx;
+}
+.integral-top .number{
+  position: absolute;
+  right: 0;
+  top: 0rpx;
+  font-size:100rpx;
+}
+
+/* 底部导航 */
+
+.weixin{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 130rpx;
+    font-size: 38rpx;
+    background: #f1f1f1;
+    line-height: 130rpx;
+}
+.weixin dt{
+    width: 60%;
+    color:#404447;
+    padding-left: 5%;
+    float: left;
+}
+.weixin dd{
+    width: 35%;
+    text-align: center;
+    color: #fff;
+    background: #D11208;
+    float: right;
+}
+
+.zt-box-img li span img{ height:226rpx;}
+
+.iiiiii{
+    width: 96% !important;
+    padding: 10rpx 2rpx;
+    display: block;
+    margin: 0 auto;
+}
+
+.opopopop{
+    font-size: 20rpx;
+    float: right;
+    margin: 10rpx;
+    border-radius: 5px;
+    padding: 20rpx;
+    color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

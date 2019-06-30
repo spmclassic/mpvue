@@ -1,68 +1,102 @@
 <template>
-  <div @click="clickHandle">
-
-    <div class="userinfo" @click="bindViewTap">
-      <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
-      <img class="userinfo-avatar" src="/static/images/user.png" background-size="cover" />
-
-      <div class="userinfo-nickname">
-        <card :text="userInfo.nickName"></card>
-      </div>
+  <div class="bg">
+    <button class="authlogin" open-type="getUserInfo" @getuserinfo="bindGetUserInfo" v-if="getusershow"> 获取头像昵称 </button>
+    <img class="bgimg" src="/static/images/23.jpg">
+    <div class="saoma" @click="qusaonma">
+      <img src="/static/images/logo.png">
     </div>
 
-    <div class="usermotto">
-      <div class="user-motto">
-        <card :text="motto"></card>
-      </div>
-    </div>
-
-    <form class="form-container">
-      <input type="text" class="form-control" :value="motto" placeholder="v-model" />
-      <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
-      <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
-    </form>
-
-
-    <div class="all">
-        <div class="left">
-        </div>
-        <div class="right">
-        </div>
+    <div class="mall" @click="qugouwu">
+      <img src="/static/images/mine-mall.png"><div class="numbers">{{numbers}}</div>
     </div>
   </div>
 </template>
 
 <script>
-import card from '@/components/card'
+    import '@/assets/css/style.css';
 
 export default {
   data () {
     return {
-      motto: 'Hello miniprogramedd',
-      userInfo: {
-        nickName: 'mpvue',
-        avatarUrl: 'http://mpvue.com/assets/logo.png'
-      }
+        getusershow:true,
+        numbers:0,
     }
   },
 
   components: {
-    card
-  },
 
-  methods: {
-    bindViewTap () {
-      const url = '../logs/main'
-      if (mpvuePlatform === 'wx') {
-        mpvue.switchTab({ url })
-      } else {
-        mpvue.navigateTo({ url })
-      }
+  },
+    mounted(){
+        var _this = this;
+
+        var basket = mpvue.getStorageSync('basket') || {};
+        this.numbers = 0;
+        for(var i in basket){
+            this.numbers = this.numbers * 1 + basket[i]*1;
+        }
+
+        wx.getSetting({
+            success: function(res){
+                if (res.authSetting['scope.userInfo']) {
+                    wx.getUserInfo({
+                        success: function(res) {
+                            console.log(res.userInfo)
+                            //用户已经授权过
+                            console.log('用户已经授权过')
+                            _this.getusershow = false;
+                            _this.userInfo = res.userInfo;
+                            mpvue.setStorageSync('userInfo', res.userInfo)
+                        }
+                    })
+                }else{
+                    console.log('用户还未授权过')
+                }
+            }
+        })
     },
-    clickHandle (ev) {
-      console.log('clickHandle:', ev)
-      // throw {message: 'custom test'}
-    }
+  methods: {
+      qusaonma(){
+          wx.scanCode({
+              success (res) {
+                  wx.navigateTo({
+                      url: res.result
+                  });
+              }
+          })
+      },
+      qugouwu(){
+          if(!this.numbers){
+              return wx.showToast({
+                  title: '暂无添加任何商品',
+                  icon: 'none',
+                  duration: 2000
+              })
+          }
+          wx.navigateTo({
+              url: '/pages/order/main'
+          });
+      },
+      bindGetUserInfo(e) {
+          var _this = this;
+
+          if (e.mp.detail.rawData){
+              //用户按了允许授权按钮
+              console.log('用户按了允许授权按钮')
+              console.log(e.mp.detail.userInfo);
+              this.getusershow = false;
+              this.userInfo = e.mp.detail.userInfo;
+              mpvue.setStorageSync('userInfo', e.mp.detail.userInfo)
+
+              _this.$net.post({
+                  url: 'saveuserinfo',
+                  data: e.mp.detail.userInfo
+              })
+
+          } else {
+              //用户按了拒绝按钮
+              console.log('用户按了拒绝按钮')
+          }
+      },
   },
 
   created () {
@@ -72,54 +106,50 @@ export default {
 </script>
 
 <style scoped>
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.bg{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
+.bgimg{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.saoma{
+  position: relative;
+  width: 300rpx;
+  height: 300rpx;
+  margin-left: 50%;
+  margin-top: 30%;
+  left: -150rpx;
   border-radius: 50%;
+  overflow: hidden;
+  border: 6rpx solid #ccc;
+  background: #ffffff;
+  opacity: 0.8;
 }
-
-.userinfo-nickname {
-  color: #aaa;
+.saoma img{
+  width: 70%;
+  height: 70%;
+  margin: 15%;
 }
-
-.usermotto {
-  margin-top: 150px;
+.mall{
+  position: relative;
+  width: 100rpx;
+  height: 100rpx;
+  margin-left: 50%;
+  margin-top: 40%;
+  left: -50rpx;
+  border-radius: 50%;
+  opacity: 0.8;
 }
-
-.form-control {
-  display: block;
-  padding: 0 12px;
-  margin-bottom: 5px;
-  border: 1px solid #ccc;
-}
-.all{
-  width:7.5rem;
-  height:1rem;
-  background-color:blue;
-}
-.all:after{
-  display:block;
-  content:'';
-  clear:both;
-}
-.left{
-  float:left;
-  width:3rem;
-  height:1rem;
-  background-color:red;
-}
-
-.right{
-  float:left;
-  width:4.5rem;
-  height:1rem;
-  background-color:green;
+.mall img{
+  width: 60%;
+  height: 60%;
+  margin: 20%;
 }
 </style>

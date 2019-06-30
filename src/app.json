@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/main",
+    "pages/goods/main",
+    "pages/order/main",
     "pages/logs/main"  ],
   "window": {
     "backgroundTextStyle": "light",

@@ -10,23 +10,29 @@ export default {
      * 支付宝(蚂蚁)：mpvue === my, mpvuePlatform === 'my'
      */
 
-    let logs
-    if (mpvuePlatform === 'my') {
-      logs = mpvue.getStorageSync({key: 'logs'}).data || []
-      logs.unshift(Date.now())
-      mpvue.setStorageSync({
-        key: 'logs',
-        data: logs
+      var _this = this;
+      // 登录
+      wx.login({
+          success: res => {
+              // 发送 res.code 到后台换取 openId, sessionKey, unionId
+              _this.$net.post({
+                  url: 'login',
+                  data: {
+                      'code': res.code
+                  }
+              }).then(res => {
+                  mpvue.setStorageSync('token', res.data.access_token)
+                  mpvue.setStorageSync('openid', res.data.openid)
+              })
+          }
       })
-    } else {
-      logs = mpvue.getStorageSync('logs') || []
-      logs.unshift(Date.now())
-      mpvue.setStorageSync('logs', logs)
-    }
   },
   log () {
     console.log(`log at:${Date.now()}`)
-  }
+  },
+    globalData: {
+        userInfo: null
+    }
 }
 </script>
 
