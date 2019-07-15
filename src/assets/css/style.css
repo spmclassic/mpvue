@@ -28,8 +28,9 @@ p{ font-size: 30rpx; color: #333;}
     width: 60rpx;
     height: 60rpx;
     top: 20rpx;
-    right: -60rpx;
+    right: -40rpx;
     text-align: center;
     line-height: 60rpx;
     font-size: 40rpx;
+    color: #fff;
 }

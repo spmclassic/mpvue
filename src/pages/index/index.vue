@@ -1,9 +1,9 @@
 <template>
   <div class="bg">
     <button class="authlogin" open-type="getUserInfo" @getuserinfo="bindGetUserInfo" v-if="getusershow"> 获取头像昵称 </button>
-    <img class="bgimg" src="/static/images/23.jpg">
+    <img class="bgimg" src="/static/images/23.png">
     <div class="saoma" @click="qusaonma">
-      <img src="/static/images/logo.png">
+      <img src="/static/images/anniu.png">
     </div>
 
     <div class="mall" @click="qugouwu">
@@ -128,22 +128,19 @@ export default {
   left: -150rpx;
   border-radius: 50%;
   overflow: hidden;
-  border: 6rpx solid #ccc;
-  background: #ffffff;
   opacity: 0.8;
 }
 .saoma img{
-  width: 70%;
-  height: 70%;
-  margin: 15%;
+  width: 100%;
+  height: 100%;
+  margin: 0%;
 }
 .mall{
-  position: relative;
+  position: absolute;
   width: 100rpx;
   height: 100rpx;
-  margin-left: 50%;
-  margin-top: 40%;
-  left: -50rpx;
+  right: 70rpx;
+  top: 20rpx;
   border-radius: 50%;
   opacity: 0.8;
 }

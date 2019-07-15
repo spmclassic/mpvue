@@ -1,7 +1,7 @@
 <template>
   <div class="myContainer" style=" margin: 10rpx;">
-    <div style=" height: 400rpx; display: block; overflow: hidden; text-align: center;">
-      <img :src="image" style="height: 100%; margin: 0 auto; display: block"/>
+    <div style=" display: block; overflow: hidden; text-align: center;">
+      <img :src="image" style=" margin: 0 auto; display: block" mode="widthFix"/>
     </div>
     <ul>
       <li><span>名称：</span>{{name}}</li>
