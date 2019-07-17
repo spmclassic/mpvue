@@ -4,7 +4,7 @@
       <img :src="image" style=" margin: 0 auto; display: block" mode="widthFix"/>
     </div>
     <ul>
-      <li><span>名称：</span>{{name}}</li>
+      <li><span>Description：</span>{{name}}</li>
       <li v-for="(item, index) in attr" :index="index" :key="key"><span>{{item.name}}：</span>{{intro["'"+item.id+"'"]}}</li>
     </ul>
 
