@@ -3,7 +3,7 @@
     <div class="myContainer">
 
       <!-- 最新视频 -->
-      <h1 class="myTitle">清单列表</h1>
+      <h1 class="myTitle">List</h1>
       <ul class="zt-box zt-box-img" v-for="(item, index) in lists" :index="index" :key="key">
         <li @click="toson(item.id)">
           <span><img :src="item.image" alt="" ></span>
@@ -20,16 +20,16 @@
           </dl>
           <dl class="zt-money red">
             <dt></dt>
-            <dd @click="shanchu(item.id)">删除</dd>
+            <dd @click="shanchu(item.id)">Delete</dd>
           </dl>
         </li>
       </ul>
 
         <div>
-            邮箱：<input v-model="mail" style="border: 1px solid #eee; border-radius: 5rpx; width: 100%;" type="tel">
+            Email：<input v-model="mail" style="border: 1px solid #eee; border-radius: 5rpx; width: 100%;" type="tel">
         </div>
         <div>
-            备注：<textarea v-model="mark" style="border: 1px solid #eee; border-radius: 5rpx; width: 100%;"></textarea>
+            Remark：<textarea v-model="mark" style="border: 1px solid #eee; border-radius: 5rpx; width: 100%;"></textarea>
         </div>
 
     </div>
@@ -101,6 +101,7 @@
                 url: 'savedata',
                 data: {
                     data : mpvue.getStorageSync('basket'),
+                    remark : mpvue.getStorageSync('remark'),
                     mail : _this.mail,
                     mark : _this.mark,
                 }
