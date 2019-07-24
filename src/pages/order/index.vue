@@ -115,6 +115,7 @@
                 }
 
                 mpvue.setStorageSync('basket', {});
+                mpvue.setStorageSync('remark', {});
 
                 wx.showToast({
                     title: res.info,
