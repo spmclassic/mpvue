@@ -16,7 +16,7 @@
           </dl>
           <dl class="zt-money gray">
             <dt></dt>
-            <dd><span>{{item.number}}</span>个</dd>
+            <dd><span>{{item.number}}</span>pc</dd>
           </dl>
           <dl class="zt-money red">
             <dt></dt>
@@ -36,8 +36,8 @@
 
     <div class="h130"></div>
     <dl class="weixin">
-      <dt>共计：<span>{{numbers}}</span>个</dt>
-      <dd @click="topay">确认清单</dd>
+      <dt>Total：<span>{{numbers}}</span>pc</dt>
+      <dd @click="topay">Confirm</dd>
     </dl>
 
   </div>
